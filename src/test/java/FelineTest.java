@@ -8,6 +8,7 @@ import org.mockito.junit.MockitoJUnitRunner;
 import java.util.List;
 
 import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertNotNull;
 
 @RunWith(MockitoJUnitRunner.class)
 
@@ -28,8 +29,7 @@ public class FelineTest {
 
     @Test
     public void checkGetFood() throws Exception {
-        Mockito.when(feline.getFood("Хищник")).thenReturn(List.of("Животные", "Птицы", "Рыба"));
-        List acutal = feline.getFood("Хищник");
+        List acutal = felineTest.eatMeat();
         List expected = List.of("Животные", "Птицы", "Рыба");
         System.out.println(acutal);
         assertEquals(acutal, expected);
@@ -47,6 +47,19 @@ public class FelineTest {
         int actual = felineTest.getKittens();
         int expected = 1;
         assertEquals(actual,expected);
+    }
+
+    @Test
+    public void checkExceptionEatMeat(){
+        Exception exception = null;
+
+        try {
+            felineTest.getFood("Молоко");
+        } catch (Exception ex) {
+            exception = ex;
+        }
+        assertNotNull(exception);
+        assertEquals("Неизвестный вид животного, используйте значение Травоядное или Хищник",exception.getMessage());
     }
 
 }

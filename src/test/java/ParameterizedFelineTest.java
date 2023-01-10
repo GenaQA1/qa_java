@@ -31,23 +31,12 @@ public class ParameterizedFelineTest {
         return new Object[][]{
                 {"Травоядное", List.of("Трава", "Различные растения")},
                 {"Хищник", List.of("Животные", "Птицы", "Рыба")},
-                {"Молочник", List.of("Неизвестный вид животного, используйте значение Травоядное или Хищник")},
         };
     }
 
 @Test
     public void checkResultChoose() throws Exception {
-
-    Exception exception = null;
-   try {
        List <String> actual = felineTest.getFood(animalKind);
        assertEquals(expected,actual);
-   } catch (Exception ex){
-       exception = ex;
-       assertEquals("Неизвестный вид животного, используйте значение Травоядное или Хищник",exception.getMessage());
-
-    }
-
-
 }
 }

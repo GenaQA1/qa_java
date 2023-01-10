@@ -1,3 +1,4 @@
+import com.example.Feline;
 import com.example.Lion;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -8,6 +9,7 @@ import org.mockito.junit.MockitoJUnitRunner;
 import java.util.List;
 
 import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertNotNull;
 
 @RunWith(MockitoJUnitRunner.class)
 
@@ -26,14 +28,6 @@ public class LionTest {
     assertEquals(actual,true);
 }
 
-@Test
-public void test1() throws Exception {
-   Mockito.when(lion.getKittens()).thenReturn(2);
-    Lion lionTest = new Lion("Самец", null);
-    int acutal = lion.getKittens();
-    int expected = 2;
-    assertEquals(acutal,expected);
-}
 
 @Test
 public void checkChangeNubmersInGetKittens(){
@@ -45,6 +39,14 @@ public void checkChangeNubmersInGetKittens(){
     assertEquals(actual,expected);
 }
 
+    @Test
+    public void checkNubmersnGetKittens() throws Exception {
+    Lion lion = new Lion("Самец",null);
+    int actual = lion.getKittens();
+    int expected = 1; ;
+    assertEquals(actual,expected);
+    }
+
 @Test
     public void checkResultMokDoesHaveMane(){
     Mockito.when(lion.doesHaveMane()).thenReturn(false);
@@ -53,11 +55,25 @@ public void checkChangeNubmersInGetKittens(){
 
 @Test
     public void checkResultPrintGetFood() throws Exception {
-    Mockito.when(lion.getFood()).thenReturn(List.of("Животные", "Птицы", "Рыба"));
-    List actual = lion.getFood();
+    Lion lionTest = new Lion("Самец",null);
+    List actual = lionTest.getFood();
     List expected = List.of("Животные", "Птицы", "Рыба");
     System.out.println(actual);
     assertEquals(actual,expected);
+}
+
+@Test
+    public void checkExceptionGetFood(){
+    Exception exception = null;
+
+    try {
+        Lion lionTest = new Lion("Жираф",null);
+    } catch (Exception ex) {
+        exception = ex;
+    }
+    assertNotNull(exception);
+    assertEquals("Используйте допустимые значения пола животного - самей или самка",exception.getMessage());
+
 
 }
 

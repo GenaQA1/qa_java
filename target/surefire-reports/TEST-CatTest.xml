@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<testsuite tests="1" failures="0" name="CatTest" time="0.881" errors="0" skipped="0">
+<testsuite tests="1" failures="0" name="CatTest" time="0.726" errors="0" skipped="0">
   <properties>
     <property name="idea.version" value="2022.1.1"/>
     <property name="java.runtime.name" value="OpenJDK Runtime Environment"/>
@@ -60,5 +60,5 @@
     <property name="socksNonProxyHosts" value="local|*.local|169.254/16|*.169.254/16"/>
     <property name="ftp.nonProxyHosts" value="local|*.local|169.254/16|*.169.254/16"/>
   </properties>
-  <testcase classname="CatTest" name="checkSaySoundCat" time="0.881"/>
+  <testcase classname="CatTest" name="checkSaySoundCat" time="0.726"/>
 </testsuite>
